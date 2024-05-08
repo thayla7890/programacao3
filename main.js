@@ -1,5 +1,5 @@
 const botoes = document.querySelectorAll(".botao");
-const textos = documet.querySelectorAll(".aba-conteudo");
+const textos = document.querySelectorAll(".aba-conteudo");
 
 for(let i=0;i <botoes.length;i++){
     botoes[i].onclick = function () {
@@ -36,13 +36,18 @@ function calculaTempo(tempoObjetivo){
     if (tempoFinal > 0){
         return dias + " dias " + horas + " horas " + minutos + " minutos " + segundos + " segundos ";
     } else {
-        return "Prazo Finalizado";
+        return [0,0,0,0];
     }
     
 }
 function atualizaCronometro(){
+    document.getElementById("dias0").textContent = calculaTempo(tempos[0])[0];
+    document.getElementById("horas0").textContent = calculaTempo(tempos[0])[1];
+    document.getElementById("min0").textContent = calculaTempo(tempos[0])[2];
+    document.getElementById("seg0").textContent = calculaTempo(tempos[0])[3];
     for (let i=0; i<contadores.length;i++){
-        contadores[i].textContent = calculaTempo(tempos[i]);
+        document.getElementById("seg"=i).textContent = calculaTempo(tempos[1])[3];
+       
     }
 }
 function comecaCronometro(){
@@ -50,4 +55,4 @@ function comecaCronometro(){
     atualizaCronometro();
     setInterval(atualizaCronometro,1000);
 }
-//comecaCronometro();
+comecaCronometro();
